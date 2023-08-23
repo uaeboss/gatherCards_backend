@@ -9,7 +9,7 @@ export const comparePasswords = (password, hash) => {
   return bcrypt.compare(password, hash);
 };
 
-export const create JWT = (id) => {
+export const createJWT = (id) => {
     const token = jwt.sign({id: id}, process.env.JWT_SECRET);
     return token
 }
