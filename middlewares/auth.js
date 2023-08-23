@@ -11,7 +11,6 @@ export const protect = asyncHandler(async (req, res, next) => {
   if (!token) throw new ErrorResponse("Not a valid token!", 401);
 
   const user = jwt.verify(token, process.env.JWT_SECRET);
-
   req.userID = user.id;
   next();
 });

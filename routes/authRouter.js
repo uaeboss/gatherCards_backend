@@ -9,5 +9,8 @@ const authRouter = Router();
 authRouter.post('/signup', validateJOI(signupSchema), signUp);
 authRouter.post('/signin', validateJOI(signinSchema), signIn);
 authRouter.get('/me', protect, getUser);
+authRouter.get('/', (req, res) => {
+    res.send('authRouter here')
+});
 
 export default authRouter;

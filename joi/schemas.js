@@ -9,10 +9,10 @@ export const signupSchema = Joi.object({
 })
 
 export const signinSchema = Joi.object({
-    username: Joi.string().required(),
+    email: Joi.string().required(),
     password: Joi.string().alphanum().min(8).max(12).required(),
 })
 
 export const cardSchema = Joi.object({
-    cardname: Joi.string().required(),
+    title: Joi.string().required(),
 })
