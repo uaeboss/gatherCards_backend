@@ -13,5 +13,6 @@ export const signinSchema = Joi.object({
     password: Joi.string().alphanum().min(8).max(12).required(),
 })
 
-// export const postSchema = Joi.object({
-// })
+export const cardSchema = Joi.object({
+    cardname: Joi.string().required(),
+})

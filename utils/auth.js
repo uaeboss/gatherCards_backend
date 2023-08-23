@@ -1,4 +1,4 @@
-import bcrypt, { hash } from "bcrypt";
+import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
 export const disguisePassword = (password) => {
