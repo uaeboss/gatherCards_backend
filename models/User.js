@@ -11,6 +11,7 @@ const userSchema = new Schema({
     required: [true, "Password is required!"],
     select: false,
   },
+  createdAt: { type: Date, default: Date.now}
 });
 
 export default model("User", userSchema);
