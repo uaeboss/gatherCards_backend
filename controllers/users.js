@@ -35,7 +35,7 @@ export const signIn = asyncHandler(async (req, res) => {
 });
 
 export const getUser = asyncHandler(async (req, res) => {
-  const { userId } = req;
-  const user = await User.findById(userId);
+  const { userID } = req;
+  const user = await User.findById(userID);
   res.status(201).json(user);
 });
