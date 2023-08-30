@@ -14,5 +14,9 @@ export const signinSchema = Joi.object({
 })
 
 export const cardSchema = Joi.object({
-    title: Joi.string().required(),
+    id: Joi.string().required(),
+    name: Joi.string().required(),
+    qty: Joi.number().min(1).required(),
+    price: Joi.number().required(),
+    image: Joi.string().required(),
 })

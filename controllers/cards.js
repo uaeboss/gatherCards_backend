@@ -3,7 +3,7 @@ import asyncHandler from "../utils/asyncHandler.js";
 import ErrorResponse from "../utils/ErrorResponse.js";
 
 export const getAllCards = asyncHandler(async (req, res, next) => {
-  const cards = await Card.find().populate("seller");
+  const cards = await Card.find({available:true}).populate("seller");
   res.json(cards);
 });
 
@@ -24,8 +24,26 @@ export const createCard = asyncHandler(async (req, res, next) => {
   const newCard = await (
     await Card.create({ ...body, seller: userID })
   ).populate("seller");
-  res.status(201).json(newCard);
+  res.status(201).json(newCard).send("Success!!!");
 });
+
+// export const updateCard = asyncHandler(async (req, res, next) => {
+//   const {
+//     body,
+//     params: { id },
+//     userID,
+//   } = req;
+//   const found = await Card.findById(id);
+//   if (!found) throw new ErrorResponse(`The Card ${id} doesn't exist`, 404);
+//   if (userID !== found.seller._id.toString())
+//     throw new ErrorResponse(`You cant update the Details`, 401);
+//   const updatedCard = await (
+//     await Card.findOneAndUpdate({ _id: id }, body, {
+//       new: true,
+//     })
+//   ).populate("seller");
+//   res.json(updatedCard);
+// });
 
 export const updateCard = asyncHandler(async (req, res, next) => {
   const {
