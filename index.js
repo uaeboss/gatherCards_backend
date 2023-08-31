@@ -3,7 +3,7 @@ import express from "express";
 import cors from "cors";
 import cardsRouter from "./routes/cardsRouter.js";
 import authRouter from "./routes/authRouter.js";
-import errorHandler from "./middlewares/Errorhandler.js";
+import errorHandler from "./middlewares/errorHandler.js";
 
 const app = express();
 const port = process.env.PORT || 8080;
