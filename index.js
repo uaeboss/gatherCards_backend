@@ -11,14 +11,7 @@ const port = process.env.PORT || 8080;
 app.get('/', (req, res) => {
     res.send('Hi, first page is working fine so far');
 })
-app.use(
-  cors({
-    origin: [
-      "http://localhost:5173",
-      "/https://?[-a-zA-Z0-9@:%._+~#=]{1,256}.netlify.app/",
-    ],
-  })
-);
+app.use(cors({ origin: '*' }));
 
 app.use(express.json());
 app.use("/auth", authRouter);
